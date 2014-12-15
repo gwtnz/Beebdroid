@@ -10,7 +10,7 @@ import common.Utils;
 
 
 
-public class DiskInfo extends Packageable {
+public class DiskInfo extends Packageable implements Comparable {
 	
 	String key;
 	String title;
@@ -51,7 +51,14 @@ public class DiskInfo extends Packageable {
 		out.writeString(coverUrl);
 		out.writeString(diskUrl);
 		out.writeString(bootCmd);
-	}	
+	}
+
+    @Override
+    public int compareTo(Object o) {
+        if (!(o instanceof DiskInfo) || o == null) return 0;
+        DiskInfo di = (DiskInfo) o;
+        return title.compareTo(di.title);
+    }
 
 	/*public DiskInfo(String key, String title, String publisher, String bootCmd, ControllerInfo defaultController, TriggerAction[] triggers) {
 		this.key = key;

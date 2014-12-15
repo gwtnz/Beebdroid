@@ -3,6 +3,7 @@ package com.littlefluffytoys.beebdroid;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +25,17 @@ public class InstalledDisks {
 		}
 	}
 	public static int getCount() {
-		return disks.size();
-	}
+        return disks.size();
+    }
 	public static DiskInfo getByIndex(int index) {
-		return disks.get(index);
-	}
+        return disks.get(index);
+    }
 	public static DiskInfo getByKey(String key) {
 		return map.get(key);
 	}
 	public static DiskInfo add(DiskInfo diskInfo) {
 		disks.add(0, diskInfo);
+        Collections.sort(disks);
 		map.put(diskInfo.key, diskInfo);
 		packageable.save();
 		return diskInfo;
@@ -43,6 +45,7 @@ public class InstalledDisks {
 		@Override
 		public void readFromPackage(PackageInputStream in) throws IOException {
 			disks = in.readPackageableList(DiskInfo.class);
+            Collections.sort(disks);
 		}
 	
 		@Override

@@ -3,12 +3,13 @@ package com.littlefluffytoys.beebdroid;
 public class BeebKeys {
 	/*
 	 * BBC Model B Keyboard : taken from 	http://www.flickr.com/photos/39013214@N03/5660684665/sizes/o/in/photostream/
+	 * The weird UTF-8 character on the keyboard mapping is the pound key
 
 	         0    1    2    3    4    5    6   7    8    9
 	         ----------------------------------------------
 	0x70     ESC  F1   F2   F3   F5   F6   F8   F9   \|  right
 	0x10     Q    3    4    5    F4   8    F7   -=   ^~  left
-	0x20     F0   W    E    T    7    I    9    0    £_  down
+	0x20     F0   W    E    T    7    I    9    0    "\u00A3"_  down
 	0x30     1    2    D    R    6    U    O    P    [(  up
 	0x40     CAP  A    X    F    Y    J    K    @    :*  RET
 	0x50     SLC  S    C    G    H    N    L    ;+   ])  DEL
@@ -32,7 +33,7 @@ public class BeebKeys {
 	public static final int BBCKEY_TILDE = 0x118;
 	public static final int BBCKEY_CARET = 0x18;
 	public static final int BBCKEY_ARROW_LEFT = 0x19;
-	// 0x20     F0   W    E    T    7    I    9    0  £_
+	// 0x20     F0   W    E    T    7    I    9    0  "\u00A3"_
 	public static final int BBCKEY_F0 = 0x20;
 	public static final int BBCKEY_W = 0x21;
 	public static final int BBCKEY_E = 0x22;
